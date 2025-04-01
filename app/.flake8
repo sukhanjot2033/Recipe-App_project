@@ -2,5 +2,5 @@
 exlcude =
     migrations,
     __pyache__,
-    manage.py
+    manage.py,
     settings.py
