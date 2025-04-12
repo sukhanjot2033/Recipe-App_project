@@ -7,3 +7,5 @@ docker logout
 docker login
 
 django admin startporject
+
+new123
