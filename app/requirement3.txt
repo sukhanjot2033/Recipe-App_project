@@ -1,0 +1,12 @@
+asgiref==3.8.1
+Django==3.2.25
+django-filter==21.1
+djangorestframework==3.12.4
+flake8==3.9.2
+mccabe==0.6.1
+psycopg2==2.8.6
+pycodestyle==2.7.0
+pyflakes==2.3.1
+pytz==2025.2
+sqlparse==0.5.3
+typing_extensions==4.13.2

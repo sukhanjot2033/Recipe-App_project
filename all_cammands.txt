@@ -1,6 +1,6 @@
 docker compose run --rm app sh -c "python manage.py test"
 
-
+docker compose down
 docker compose up
 
 docker logout
@@ -8,4 +8,37 @@ docker login
 
 django admin startporject
 
-new123
+
+docker volume ls (list all of the volumes)
+
+1> To remove the volume type: docker volume rm recip-dev_DB
+
+2> To migrate first always check if db is available or not.
+
+
+To check if db is available
+    --  docker compose run --rm app sh -c "python manage.py dbshell"
+
+
+
+
+
+If you want to restart from scratch then follow these below steps:
+    # OPTIONAL: Clean old migrations and DB
+    find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
+    rm db.sqlite3  # if using SQLite
+
+    # Rebuild from scratch
+    docker compose down -v      # Stops & removes containers + volumes
+    docker compose build --no-cache
+    docker compose up -d        # or just `docker compose up`
+
+    # Migrate fresh
+    docker compose run --rm app sh -c "python manage.py makemigrations"
+    docker compose run --rm app sh -c "python manage.py migrate"
+    docker compose run --rm app sh -c "python manage.py createsuperuser"
+
+
+
+To run any docker file except docker one is:
+docker compose -f docker-compose-deploy.yml up --build
