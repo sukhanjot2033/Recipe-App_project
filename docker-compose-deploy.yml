@@ -40,10 +40,7 @@ services:
       - 8000:8000
     volumes:
       - static-data:/vol/static
-    environment:
-      - LISTEN_PORT=8000
-      - APP_HOST=app
-      - APP_PORT=9000
+   
 
 
 volumes:
